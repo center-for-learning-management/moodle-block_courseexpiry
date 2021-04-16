@@ -28,7 +28,7 @@ require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
 
 class block_courseexpiry extends block_base {
     public function init() {
-        $this->title = get_string('pluginname', 'block_courseexpiry');
+        $this->title = get_string('automatedcoursedeletion', 'block_courseexpiry');
     }
     public function get_content() {
         if ($this->content !== null) {
@@ -60,7 +60,7 @@ class block_courseexpiry extends block_base {
     }
 
     public function hide_header() {
-        return true;
+        return false;
     }
     public function has_config() {
         return false;

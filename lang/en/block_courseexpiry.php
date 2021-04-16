@@ -24,9 +24,10 @@
 $string['pluginname'] = 'Course Expiry Block';
 $string['privacy:metadata'] = 'This plugin does not store any personal data';
 
-$string['attention'] = 'Attention';
+$string['automatedcoursedeletion'] = 'Automated course removal';
 
 $string['courseexpiry:addinstance'] = 'Add course expiry-block';
 $string['courseexpiry:myaddinstance'] = 'Add course expiry-block to Dashboard';
 
-$string['warning'] = 'some of your courses are about to expire!';
+$string['warning'] = 'Some of your courses are about to expire!';
+$string['warning:gotolist'] = 'Show list of these courses';

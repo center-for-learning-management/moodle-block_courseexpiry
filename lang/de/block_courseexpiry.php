@@ -23,9 +23,10 @@
 
 $string['pluginname'] = 'Kurs-Ablauflöschung Block';
 
-$string['attention'] = 'Achtung';
+$string['automatedcoursedeletion'] = 'Automatische Kurslöschung';
 
 $string['courseexpiry:addinstance'] = 'Kurs-Ablauflöschung Block hinzufügen';
 $string['courseexpiry:myaddinstance'] = 'Kurs-Ablauflöschung Block zum Dashboard hinzufügen';
 
 $string['warning'] = 'Manche Ihrer Kurse werden bald gelöscht!';
+$string['warning:gotolist'] = 'Zeige die Liste dieser Kurse';
