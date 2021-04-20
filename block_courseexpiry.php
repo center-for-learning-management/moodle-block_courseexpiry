@@ -39,20 +39,22 @@ class block_courseexpiry extends block_base {
             'footer' => ''
         );
         $cache = \cache::make('block_courseexpiry', 'sessioncache');
-        $showwarning = $cache->get('showwarning');
-        if (empty($showwarning)) {
-            if (count(\local_courseexpiry\locallib::get_expired_courses() > 0)) {
-                $showwarning = 1;
-            } else {
-                $showwarning = -1;
-            }
-            $cache->set('showwarning', $showwarning);
+        $courses = $cache->get('courses');
+        $lasttimedelete = $cache->get('lasttimedelete');
+        if (empty($courses)) {
+            $courses = \local_courseexpiry\locallib::get_expired_courses();
+            $lasttimedelete = \local_courseexpiry\locallib::get_lasttimedelete($courses);
+            $cache->set('courses', $courses);
+            $cache->set('lasttimedelete', $lasttimedelete);
         }
-        if ($showwarning == 1) {
-            global $CFG, $OUTPUT;
+        $showwarning = count($courses) > 0;
+        if ($showwarning) {
+            global $CFG, $OUTPUT, $PAGE;
+            $minimizeuntil = \get_user_preferences('block_courseexpiry_minimizeuntil', 0);
+            $minimized = ($minimizeuntil > time() && $lasttimedelete <= $minimizeuntil) ? 1 : 0;
             $this->content->text = $OUTPUT->render_from_template(
                 'block_courseexpiry/warning',
-                array('wwwroot' => $CFG->wwwroot)
+                array('minimized' => $minimized, 'wwwroot' => $CFG->wwwroot)
             );
         }
 

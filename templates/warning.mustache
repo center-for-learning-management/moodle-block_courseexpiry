@@ -36,12 +36,16 @@
 }}
 
 <div id="block_courseexpiry_{{uniqid}}" class="block_courseexpiry">
+    {{^minimized}}
     <p style="text-align: center;">
         <i class="fa fa-warning fa-5x" style="color: darkred;"></i>
     </p>
     <p style="text-align: center;">{{#str}} warning, block_courseexpiry {{/str}}</p>
+    {{/minimized}}
     <p style="text-align: center;">
-        <a href="{{wwwroot}}/local/courseexpiry/expiredcourses.php" class="btn btn-primary btn-block">
+        <a href="{{wwwroot}}/local/courseexpiry/expiredcourses.php"
+           class="btn {{^minimized}} btn-primary {{/minimized}}{{#minimized}} btn-secondary {{/minimized}} btn-block">
+            <i class="fa fa-list"></i>
             {{#str}} warning:gotolist, block_courseexpiry {{/str}}
         </a>
     </p>

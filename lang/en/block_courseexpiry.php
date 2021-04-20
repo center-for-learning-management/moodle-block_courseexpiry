@@ -30,4 +30,4 @@ $string['courseexpiry:addinstance'] = 'Add course expiry-block';
 $string['courseexpiry:myaddinstance'] = 'Add course expiry-block to Dashboard';
 
 $string['warning'] = 'Some of your courses are about to expire!';
-$string['warning:gotolist'] = 'Show list of these courses';
+$string['warning:gotolist'] = 'Show list of courses';
