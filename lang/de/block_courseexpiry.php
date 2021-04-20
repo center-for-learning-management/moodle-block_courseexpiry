@@ -25,6 +25,8 @@ $string['pluginname'] = 'Kurs-Ablauflöschung Block';
 
 $string['automatedcoursedeletion'] = 'Automatische Kurslöschung';
 
+$string['privacy:metadata:preference:block_courseexpiry_minimizeuntil'] = 'Speichert einen Zeitstempel, bis wann die Löschwarnung minimiert gezeigt wird';
+
 $string['courseexpiry:addinstance'] = 'Kurs-Ablauflöschung Block hinzufügen';
 $string['courseexpiry:myaddinstance'] = 'Kurs-Ablauflöschung Block zum Dashboard hinzufügen';
 

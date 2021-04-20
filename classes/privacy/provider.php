@@ -23,11 +23,26 @@
 
 namespace block_courseexpiry\privacy;
 use core_privacy\local\metadata\collection;
+use \core_privacy\local\request\writer;
 
 defined('MOODLE_INTERNAL') || die;
 
-class provider implements \core_privacy\local\metadata\null_provider {
-    public static function get_reason() : string {
-        return 'privacy:metadata';
+class provider implements
+\core_privacy\local\metadata\provider,
+\core_privacy\local\request\user_preference_provider {
+    public static function get_metadata(collection $collection) : collection {
+        $collection->add_user_preference(
+            'block_courseexpiry_minimizeuntil',
+            'privacy:metadata:preference:block_courseexpiry_minimizeuntil'
+        );
+
+        return $collection;
+    }
+    public static function export_user_preferences(int $userid) {
+        $minimizeuntil = \get_user_preferences('block_courseexpiry_minimizeuntil', -1, $userid);
+        if ($minimizeuntil > -1) {
+            $label = get_string('privacy:metadata:preference:block_courseexpiry_minimizeuntil', 'block_courseexpiry');
+            writer::export_user_preference('block_courseexpiry', 'block_courseexpiry_minimizeuntil', $minimizeuntil, $label);
+        }
     }
 }
