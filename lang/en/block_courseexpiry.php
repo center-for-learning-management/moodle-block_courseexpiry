@@ -25,6 +25,7 @@ $string['pluginname'] = 'Course Expiry Block';
 
 $string['automatedcoursedeletion'] = 'Automated course removal';
 
+$string['cachedef_sessioncache'] = 'Session Cache for block_courseexpiry';
 $string['courseexpiry:addinstance'] = 'Add course expiry-block';
 $string['courseexpiry:myaddinstance'] = 'Add course expiry-block to Dashboard';
 
