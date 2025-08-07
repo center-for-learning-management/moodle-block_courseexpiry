@@ -42,7 +42,7 @@ class block_courseexpiry extends block_base {
         $courses = $cache->get('courses');
         $lasttimedelete = $cache->get('lasttimedelete');
         if (empty($courses)) {
-            $courses = \local_courseexpiry\locallib::get_expired_courses();
+            $courses = \local_courseexpiry\locallib::get_expired_courses_teacher();
             $lasttimedelete = \local_courseexpiry\locallib::get_lasttimedelete($courses);
             $cache->set('courses', $courses);
             $cache->set('lasttimedelete', $lasttimedelete);

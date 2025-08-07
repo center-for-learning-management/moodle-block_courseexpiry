@@ -29,5 +29,5 @@ $plugin->component = 'block_courseexpiry';
 $plugin->release = '1.1';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array(
-    'local_courseexpiry' => 2021041300,
+    'local_courseexpiry' => 2025080700,
 );
