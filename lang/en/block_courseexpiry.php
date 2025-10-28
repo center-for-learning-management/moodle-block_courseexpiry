@@ -29,7 +29,5 @@ $string['cachedef_sessioncache'] = 'Session Cache for block_courseexpiry';
 $string['courseexpiry:addinstance'] = 'Add course expiry-block';
 $string['courseexpiry:myaddinstance'] = 'Add course expiry-block to Dashboard';
 
-$string['privacy:metadata:preference:block_courseexpiry_minimizeuntil'] = 'Stores a timestamp on how long the warning is shown minimized';
-
 $string['warning'] = 'Some of your courses are about to expire!';
 $string['warning:gotolist'] = 'Show list of courses';

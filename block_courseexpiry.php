@@ -30,31 +30,31 @@ class block_courseexpiry extends block_base {
     public function init() {
         $this->title = get_string('automatedcoursedeletion', 'block_courseexpiry');
     }
+
     public function get_content() {
         if ($this->content !== null) {
             return $this->content;
         }
-        $this->content = (object) array(
+
+        $this->content = (object)array(
             'text' => '',
             'footer' => ''
         );
+
         $cache = \cache::make('block_courseexpiry', 'sessioncache');
         $courses = $cache->get('courses');
-        $lasttimedelete = $cache->get('lasttimedelete');
-        if (empty($courses)) {
+        if (!is_array($courses)) {
             $courses = \local_courseexpiry\locallib::get_expired_courses_teacher();
             $lasttimedelete = \local_courseexpiry\locallib::get_lasttimedelete($courses);
             $cache->set('courses', $courses);
             $cache->set('lasttimedelete', $lasttimedelete);
         }
-        $showwarning = count($courses) > 0;
-        if ($showwarning) {
-            global $CFG, $OUTPUT, $PAGE;
-            $minimizeuntil = \get_user_preferences('block_courseexpiry_minimizeuntil', 0);
-            $minimized = ($minimizeuntil > time() && $lasttimedelete <= $minimizeuntil) ? 1 : 0;
+
+        if ($courses) {
+            global $CFG, $OUTPUT;
             $this->content->text = $OUTPUT->render_from_template(
                 'block_courseexpiry/warning',
-                array('minimized' => $minimized, 'wwwroot' => $CFG->wwwroot)
+                ['wwwroot' => $CFG->wwwroot]
             );
         }
 
@@ -64,9 +64,11 @@ class block_courseexpiry extends block_base {
     public function hide_header() {
         return false;
     }
+
     public function has_config() {
         return false;
     }
+
     public function instance_allow_multiple() {
         return false;
     }
